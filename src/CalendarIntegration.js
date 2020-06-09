@@ -62,13 +62,9 @@ export class CalendarIntegration extends SampleBase {
                 <div className='col-lg-12 control-section'>
                     <div className='control-wrapper drag-sample-wrapper'>
                         <div className="schedule-container">
-                            <ScheduleComponent ref={schedule => this.scheduleObj = schedule} width='100%' height='650px' selectedDate={new Date(2018, 10, 14)}  eventSettings={{ dataSource: this.dataManger }} dataBinding={this.onDataBinding.bind(this)}>
+                            <ScheduleComponent ref={schedule => this.scheduleObj = schedule} width='100%' height='650px'  readonly={true} selectedDate={new Date(2018, 10, 14)}  eventSettings={{ dataSource: this.dataManger }} dataBinding={this.onDataBinding.bind(this)}>
                                 <ViewsDirective>
-                                    {/* <ViewDirective option='Day'/> */}
                                     <ViewDirective option='Week'/>
-                                    {/* <ViewDirective option='WorkWeek'/>
-                                    <ViewDirective option='Month'/>
-                                    <ViewDirective option='Agenda'/> */}
                                 </ViewsDirective>
                                 <Inject services={[Day, Week, WorkWeek, Month, Agenda]}/>
                             </ScheduleComponent>

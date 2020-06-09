@@ -4,7 +4,7 @@ import GLogin from './GoogleLogin'
 export class App extends Component {
   render() {
     return (
-      <div>
+      <div  >
         <GLogin/>
       </div>
     )

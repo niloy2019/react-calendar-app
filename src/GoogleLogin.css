@@ -1,0 +1,27 @@
+.g{
+    text-align: center;
+    background-color: cadetblue;
+}
+
+.image{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.t{
+    width: 100%;
+    text-align: center;
+}
+
+.r{
+    /* width: 80%; */
+    text-align: right;
+}
+.x{
+    /* width: 20%; */
+}
+
+.email{
+    color: darkslategray;
+}

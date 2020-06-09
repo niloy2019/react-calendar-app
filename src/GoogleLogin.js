@@ -3,6 +3,8 @@ import GoogleLogin from 'react-google-login'
 import { GoogleLogout } from 'react-google-login';
 import CalendarIntegration from './CalendarIntegration'
 import FontAwesome from 'react-fontawesome'
+import   './GoogleLogin.css'
+import Calendar from './Calender'
 
 export class GLogin extends Component{
 
@@ -12,7 +14,9 @@ export class GLogin extends Component{
         this.state={
            loggedIn:false,
            access_token:'',
-           calendarId:''
+           calendarId:'',
+           name:'',
+           imageUrl:''
         }
         this.responseGoogle=this.responseGoogle.bind(this)
     }
@@ -23,7 +27,9 @@ export class GLogin extends Component{
         this.setState({
             access_token : response.tokenObj.access_token,
             calendarId   : response.profileObj.email,
-            loggedIn:true
+            loggedIn:true,
+            name : response.profileObj.email,
+            imageUrl:response.profileObj.imageUrl
         })
         console.log(this.state.calendarId)
         console.log(this.state.access_token)
@@ -43,17 +49,29 @@ export class GLogin extends Component{
      
         let button
         if(this.state.loggedIn){
-            button = <div>
-                        <GoogleLogout
-                            clientId="443492183069-fboa840bbvj5h8pc4311snf3jscifqem.apps.googleusercontent.com"
-                            buttonText="Logout"
-                            onLogoutSuccess={this.logout}
-                        >
-                        </GoogleLogout>      
+            button = <div  >
+                        <table>
+                            <tr>
+                                <td className="t">
+                                    <GoogleLogout
+                                        clientId="443492183069-fboa840bbvj5h8pc4311snf3jscifqem.apps.googleusercontent.com"
+                                        buttonText="Logout"
+                                        onLogoutSuccess={this.logout}
+                                    >
+                                    </GoogleLogout>
+                                </td>
+                                <td className="r">
+                                     <h4 className="email"> {this.state.name}</h4> 
+                                </td>
+                                <td className="x">
+                                    <img src={this.state.imageUrl} alt={this.state.imageUrl} className="image" />    
+                                </td>
+                            </tr>
+                        </table>
                         <CalendarIntegration  access_token={this.state.access_token} calendarId={this.state.calendarId} />
                     </div>
         }else{
-            button = <div>
+            button = <div >
                              <GoogleLogin 
                                 clientId="443492183069-fboa840bbvj5h8pc4311snf3jscifqem.apps.googleusercontent.com"
                                 onSuccess={this.responseGoogle}
@@ -65,12 +83,12 @@ export class GLogin extends Component{
                                 <FontAwesome name='google'/>
                                 <span> Login with Google</span>
                            </GoogleLogin> 
-                           {/* <CalendarIntegration/> */}
+                           <Calendar/>
                     </div>
         }
          
         return(
-          <div>                
+          <div  className="g" >                
               {button}
           </div>
         )
