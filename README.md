@@ -30,7 +30,7 @@
 * The Main focus to make the Application is to Integrate the Google Calendar with a Normal Calendar.   
   
  
- ## Visit : 
+ ## Hosting Link : 
    https://calender-app-with-google.herokuapp.com/  
  
 
