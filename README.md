@@ -15,7 +15,7 @@
 ## Description :
 * This is an react Calendar App, where user can create new events, update the existing events and delete 
   existing events . They can view the Calendar in Month view, Week view, Day view,Work Week view 
-  and Agenda View. To Make this Calendar 'react-calendar-scheduler' has been used.
+  and Agenda View. user can jump into any date with help of Date Picker.
   
 * There is an "login with google" button there. If the user goes login with google, hew will be asked
   to give access to his google-calendar and after gibing the access all the vents of the user's google
